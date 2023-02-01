@@ -1,8 +1,6 @@
-import getURLsFromHtml from "./getURlsFromHtml.js";
-import normalizeURL from "./nomalizeURL.js";
-import getHtml from "./getHtmlPage.js";
+import crawling from "./crawling.js";
 
-function main() {
+async function main() {
   if (process.argv.length < 3) {
     console.log("messing paramenter");
     process.exit(1);
@@ -12,7 +10,9 @@ function main() {
     process.exit(1);
   }
   const baseUrl = process.argv[2];
-  getHtml(baseUrl);
+
+  const crawledPages = await crawling(baseUrl, baseUrl, {});
+  console.log(crawledPages);
 }
 
 main();

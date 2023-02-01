@@ -6,6 +6,7 @@ const getHtmlPage = async (baseUrl: string) => {
     const response = await axios.get(baseUrl);
     if (!response.headers["content-type"].includes("text/html"))
       throw new Error("response is not a web page!");
+    return response.data;
   } catch (error) {
     let err = error as AxiosError;
     console.log(`
@@ -17,6 +18,7 @@ const getHtmlPage = async (baseUrl: string) => {
     when crawling: ${baseUrl}
   
     `);
+    process.exit(1);
   }
 };
 

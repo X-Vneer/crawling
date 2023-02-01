@@ -39,7 +39,7 @@ test("Ancher tag with relative url", () => {
     </html>
     `;
   expect(getURLsFromHtml(input, baseUrl)).toEqual([
-    "https://baseURL.sth.com/path",
+    "https://baseurl.sth.com/path",
   ]);
 });
 test("Ancher tag with invalild url", () => {
